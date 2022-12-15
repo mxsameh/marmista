@@ -1,17 +1,42 @@
 <script lang='ts'>
 	import IsMenuOpened from "$lib/stores/menu";
   import Nav from "./Nav.svelte";
-
+	import { onMount } from "svelte";
+  import gsap from 'gsap';
+  
+  let menu : HTMLDivElement;
+  let isOpened = $IsMenuOpened;
+  
+  const tl = gsap.timeline({paused: true})
 
   const closeMenu = () =>
   {
     $IsMenuOpened = false
   }
+
+  $:{
+    if($IsMenuOpened) tl.play()
+    if(!$IsMenuOpened) tl.reverse()
+  }
+
+  onMount(()=>
+  {
+    tl.
+    fromTo(menu,{
+      y: "100vh",
+    },{
+      y: "0vh",
+      onStart:()=>{isOpened = $IsMenuOpened},
+      onReverseComplete:()=>{isOpened = $IsMenuOpened}
+    })
+  })
+
+
   
 </script>
 
 
-<div class="menu" class:isOpened={$IsMenuOpened}>
+<div class="menu" class:isOpened bind:this={menu}>
   <Nav isMenu={true} on:linkClick={closeMenu}/>
 </div>
 

@@ -1,24 +1,58 @@
 <script lang="ts">
 	import { page } from '$app/stores';
-	import { createEventDispatcher } from 'svelte';
+	import IsMenuOpened from '$lib/stores/menu';
+	import { createEventDispatcher, onMount } from 'svelte';
+	import SplitType from 'split-type';
+	import gsap from 'gsap';
 
 	export let isMenu = false;
   const dispatch  = createEventDispatcher();
 
 	let tabs = [
-		{ name: 'home', link: '/' },
-		{ name: 'products', link: '/products' },
-		{ name: 'gallery', link: '/gallery' },
-		{ name: 'contact', link: '/contact' }
+		{ name: 'Home', link: '/' },
+		{ name: 'Products', link: '/products' },
+		{ name: 'Gallery', link: '/gallery' },
+		{ name: 'Contact', link: '/contact' }
 	];
 
 	$: path = $page.route.id;
 	$: activeTab = path?.split('/')[1] || 'home';
+	$:console.log( activeTab );
 
   const handleClick = () =>
   {
     dispatch('linkClick')
   }
+
+	let revealAnimTl = gsap.timeline({paused:true})
+	let hideAnimTl = gsap.timeline({paused:true})
+
+	$:{
+		if($IsMenuOpened) revealAnimTl.play(0)
+		if(!$IsMenuOpened) hideAnimTl.play(0)
+	}
+
+	onMount(()=>
+	{
+		const $links = document.querySelectorAll('.isMenu .nav_item') as NodeListOf<HTMLElement>
+		$links.forEach(link =>
+		{
+			SplitType.create(link,{types: 'chars'})
+		})
+
+		revealAnimTl.to('.nav_item .char',{
+			delay: .2,
+			y: 0,
+			stagger: {amount: 1},
+		})
+
+		hideAnimTl.set('.nav_item .char',
+		{
+			y: 100,
+		})
+
+	})
+
 
 </script>
 
@@ -26,7 +60,7 @@
 	{#each tabs as tab}
 		<a href={tab.link}
     class="nav_item"
-    class:active={activeTab == tab.name}
+    class:active={activeTab == tab.name.toLocaleLowerCase()}
     on:click={handleClick}>
     {tab.name}
     </a>
@@ -52,31 +86,16 @@
 	}
 	.nav_item {
 		font-size: 24px;
-		/* color: white; */
 		color: #555;
-		text-transform: capitalize;
+		font-kerning: none;
 		width: fit-content;
+		overflow: hidden;
+		display: inline-flex;
 	}
 	.nav_item:hover {
 		color: black;
 	}
-	.active {
-		position: relative;
+	.nav_item.active{
+		color: black;
 	}
-	.active::after {
-		content: '';
-		width: 120%;
-		height: 4px;
-		background-color: #333;
-		position: absolute;
-		translate: -50% 0;
-		top: 50%;
-		left: 50%;
-	}
-  .isMenu>.active::after{
-		content: '';
-		width: 120%;
-		height: clamp(4px,1.5vw,10px);
-
-  }
 </style>
