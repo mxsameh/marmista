@@ -17,7 +17,8 @@ const getNextProductLink = (productId : number) =>
   const currentProduct = products[currentIndex]
   const nextIndex = currentIndex % productsLength
   const nextProduct = products[nextIndex]
-  const nextProdcutLink = nextProduct.name.replaceAll(' ','-')
+  const nextProdcutName = nextProduct.name.replaceAll(' ','-')
+  const nextProdcutLink = `/products/${nextProdcutName}`
   return nextProdcutLink;
 }
 
