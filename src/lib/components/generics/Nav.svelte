@@ -17,7 +17,6 @@
 
 	$: path = $page.route.id;
 	$: activeTab = path?.split('/')[1] || 'home';
-	$:console.log( activeTab );
 
   const handleClick = () =>
   {
@@ -86,7 +85,7 @@
 	}
 	.nav_item {
 		font-size: 24px;
-		color: #555;
+		color: #eee;
 		font-kerning: none;
 		width: fit-content;
 		overflow: hidden;

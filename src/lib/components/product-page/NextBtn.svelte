@@ -1,8 +1,16 @@
 <script lang='ts'>
-  
+	import { goto } from "$app/navigation";
+
+  export let link : string;
+
+  const handleClick = () =>
+  {
+    goto(link)
+  }
+
 </script>
 
-<button class="nextBtn">
+<button class="nextBtn" on:click={handleClick}>
   x
 </button>
 

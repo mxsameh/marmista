@@ -38,6 +38,7 @@
     position: absolute;
     padding: 24px 40px 0;
     z-index: 999;
+    mix-blend-mode: unset;
   }
   .logo{
     border-bottom: 2px solid black;

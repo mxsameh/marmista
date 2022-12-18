@@ -1,12 +1,13 @@
 <script lang='ts'>
 	import NextBtn from "./NextBtn.svelte";
   export let image : string
+  export let nextProduct : string
 </script>
 
 
   <div class="product_image" style:background-image={`url(${image})`}>
     <div class="nextBtn">
-      <NextBtn/>
+      <NextBtn link={nextProduct}/>
     </div>
   </div>
 

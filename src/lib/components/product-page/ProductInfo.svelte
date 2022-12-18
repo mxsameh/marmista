@@ -4,7 +4,7 @@
 </script>
 
 <div class="product_info">
-	<h1 class="product_title">{name}</h1>
+	<h1 class="product_title">{name} marble</h1>
 	<p class="product_details">{details}</p>
 </div>
 
