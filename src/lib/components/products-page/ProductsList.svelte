@@ -19,6 +19,7 @@
   .products_list{
     display: grid;
     grid-template-columns: repeat(auto-fit,minmax(200px, 1fr));
+    padding: 0 24px;
     gap: 48px;
     margin: 80px auto 0;
     max-width: calc( 6 * 200px + 5 * 40px); // 200-> maxImage , 40 -> gap
@@ -72,11 +73,6 @@
     .products_list{
       gap: 40px;
       margin-top: 56px;
-    }
-    .product{
-      &_name{
-        margin-top: 16px;
-      }
     }
   }
   

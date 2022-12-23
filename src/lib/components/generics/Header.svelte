@@ -52,7 +52,7 @@
   .logo{
     width: fit-content;
     &_icon{
-      font-size: 40px;
+      font-size: 50px;
       font-family: 'Playfair Display', serif;
       font-weight: 500;
     }
@@ -95,6 +95,11 @@
       justify-content: space-between;
       align-items: center;
       mix-blend-mode: luminosity;
+    }
+    .logo{
+      &_icon{
+        font-size: 40px;
+      }
     }
     .nav{
       display: none;
