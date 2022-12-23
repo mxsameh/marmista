@@ -1,14 +1,19 @@
 <script lang='ts'>
-	import NextBtn from "./NextBtn.svelte";
+	import ScreenSize from "$lib/stores/screenSize";
+	import NavBtns from "./NavBtns.svelte";
+
   export let image : string
-  export let nextProduct : string
+  export let links : any
+  $:screenSize = $ScreenSize
 </script>
 
 
   <div class="product_image" style:background-image={`url(${image})`}>
-    <div class="nextBtn">
-      <NextBtn link={nextProduct}/>
+    {#if screenSize == 's' }
+    <div class="image_btns">
+      <NavBtns productLinks={links}/>
     </div>
+    {/if}
   </div>
 
 <style>
@@ -23,14 +28,7 @@
     background-repeat: no-repeat;
     background-size: cover;
     box-shadow: -4px 0px 16px rgba(0, 0, 0, 0.5);
-    /* max-width: 700px; */
-    /* display: none; */
-  }
-
-  .nextBtn{
-    position: absolute;
-    bottom: 40px;
-    left: 40px;
+    max-width: 650px;
   }
 
   @media screen and (max-width: 767px)
@@ -43,10 +41,11 @@
       border-radius: var(--border-radius) var(--border-radius) 0 0;
       height: 60%;
       box-shadow: 0px -4px 16px rgba(0, 0, 0, 0.5);
+      max-width: unset;
+      display: flex;
     }
-    .nextBtn{
-      left: 50%;
-      translate: -50%;
+    .image_btns{
+      margin: auto auto 16px;
     }
   }
   

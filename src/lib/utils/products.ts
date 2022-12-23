@@ -9,17 +9,18 @@ const getProduct = (productName : string) =>
   return product
 }
 
-const getNextProductLink = (productId : number) =>
+const getProductLinks = (productId : number) =>
 {
   const products = get(Products)
   const productsLength = products.length
-  const currentIndex = productId ;
-  const currentProduct = products[currentIndex]
-  const nextIndex = currentIndex % productsLength
+  const currentIndex = productId - 1;
+  const nextIndex = currentIndex == productsLength-1 ? 0 : currentIndex+1
   const nextProduct = products[nextIndex]
-  const nextProdcutName = nextProduct.name.replaceAll(' ','-')
-  const nextProdcutLink = `/products/${nextProdcutName}`
-  return nextProdcutLink;
+  const prevIndex = currentIndex == 0 ? productsLength-1 : currentIndex-1
+  const prevProduct = products[prevIndex]
+  const nextProdcutLink = nextProduct.link
+  const prevProdcutLink = prevProduct.link
+  return {next: nextProdcutLink, prev: prevProdcutLink};
 }
 
-export {getProduct, getNextProductLink}
+export {getProduct, getProductLinks}

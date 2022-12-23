@@ -14,11 +14,24 @@
 
 <style lang="scss">
   .main{
-    width: 90%;
-    margin-left: 10%;
-    background-color: var(--gray-100);
+    width: 100%;
     border-radius: 24px 0 0 24px;
     overflow: hidden;
+    padding: 24px 16px;
+  }
+
+  @media screen and (max-width: 1023px){
+    .main{
+      padding: 0 32px;
+      padding-top: calc(var(--header-height));
+      padding-bottom: 24px;
+    }
+  }
+
+  @media screen and (max-width: 767px){
+    .main{
+      padding: 0 24px 24px;
+    }
   }
   
 </style>

@@ -40,6 +40,9 @@
     .to(menuLine2,{
       rotate: -45
     },'<')
+    .set([menuLine1,menuLine2],{
+      background: "#580000"
+    })
 
   })
 </script>
@@ -71,7 +74,7 @@
     background-color: black;
   }
 
-  @media screen and (max-width: 767px){
+  @media screen and (max-width: 1023px){
     .menu_btn{
       display: block;
     }

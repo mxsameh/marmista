@@ -37,7 +37,7 @@
 
 
 <div class="menu" class:isOpened bind:this={menu}>
-  <Nav isMenu={true} on:linkClick={closeMenu}/>
+  <Nav on:linkClick={closeMenu}/>
 </div>
 
 
@@ -49,14 +49,14 @@
     position: fixed;
     top: 0;
     left: 0;
-    background-color: antiquewhite;
+    background-color: var(--gray-100);
     z-index: 998;
   }
   .isOpened.menu{
     display: block;
   }
 
-@media screen and (min-width: 768px){
+@media screen and (min-width: 1023px){
   .menu{
     display: none !important;
   }

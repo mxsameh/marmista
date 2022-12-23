@@ -1,11 +1,10 @@
 <script lang="ts">
-	import { page } from '$app/stores';
 	import IsMenuOpened from '$lib/stores/menu';
 	import { createEventDispatcher, onMount } from 'svelte';
 	import SplitType from 'split-type';
 	import gsap from 'gsap';
+	import ActiveNavTab from '$lib/stores/activeNavTab';
 
-	export let isMenu = false;
   const dispatch  = createEventDispatcher();
 
 	let tabs = [
@@ -15,8 +14,7 @@
 		{ name: 'Contact', link: '/contact' }
 	];
 
-	$: path = $page.route.id;
-	$: activeTab = path?.split('/')[1] || 'home';
+  $:activeLink =  $ActiveNavTab
 
   const handleClick = () =>
   {
@@ -33,7 +31,7 @@
 
 	onMount(()=>
 	{
-		const $links = document.querySelectorAll('.isMenu .nav_item') as NodeListOf<HTMLElement>
+		const $links = document.querySelectorAll('.menu .nav_item') as NodeListOf<HTMLElement>
 		$links.forEach(link =>
 		{
 			SplitType.create(link,{types: 'chars'})
@@ -55,41 +53,38 @@
 
 </script>
 
-<nav class="nav" class:isMenu>
+<nav class="nav">
 	{#each tabs as tab}
 		<a href={tab.link}
     class="nav_item"
-    class:active={activeTab == tab.name.toLocaleLowerCase()}
+    class:active={activeLink == tab.name.toLocaleLowerCase()}
     on:click={handleClick}>
     {tab.name}
     </a>
 	{/each}
 </nav>
 
-<style>
+<style lang="scss">
 	.nav {
 		display: flex;
-		gap: 32px;
-	}
-	.isMenu.nav {
-		height: 100%;
 		flex-direction: column;
+		gap: 32px;
+		height: 100%;
 		align-items: center;
 		gap: 10vh;
 		padding-top: calc(var(--header-height) + 30px);
 	}
-	.isMenu > .nav_item {
-		font-size: clamp(32px, 14vw, 80px);
-		font-weight: bold;
-		color: var(--gray-700);
-	}
+
 	.nav_item {
-		font-size: 24px;
-		color: #eee;
+		color: var(--gray-500);
+		font-size: clamp(32px, 14vw, 80px);
 		font-kerning: none;
 		width: fit-content;
 		overflow: hidden;
 		display: inline-flex;
+		font-family: 'Playfair Display', serif;
+		font-weight: 500;
+		position: relative;
 	}
 	.nav_item:hover {
 		color: black;

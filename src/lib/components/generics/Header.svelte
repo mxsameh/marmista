@@ -1,64 +1,104 @@
 <script lang='ts'>
-	import MenuBtn from "./MenuBtn.svelte";
 	import Menu from "./Menu.svelte";
-  import Nav from "./Nav.svelte";
+  import MenuBtn from "./MenuBtn.svelte";
 	import IsMenuOpened from "$lib/stores/menu";
+	import ActiveNavTab from "$lib/stores/activeNavTab";
 
   const handleClick = () =>
   {
     $IsMenuOpened = !$IsMenuOpened
   }
 
+  $:activeLink =  $ActiveNavTab
+
+
 </script>
-
-<header class="header">
-  <div class="logo">
-    <h1 class="logo_icon">M</h1>
-  </div>
-
-  <div class="nav">
-    <Nav/>
-  </div>
-
-  <MenuBtn on:menuBtnClicked={handleClick} />
-  
-</header>
 
 <Menu />
 
-<style>
+<header class="header">
+  <a class="logo" href="/">
+    <h1 class="logo_icon">M</h1>
+  </a>
+
+  <div class="nav">
+    <ul class="nav_list">
+      <a href="/" class="nav_link" class:is-active-link={activeLink == 'home'}>home</a>
+      <a href="/products" class="nav_link" class:is-active-link={activeLink == 'products'}>products</a>
+      <a href="/gallery" class="nav_link" class:is-active-link={activeLink == 'gallery'}>gallery</a>
+      <a href="contact" class="nav_link" class:is-active-link={activeLink == 'contact'}>contact</a>
+    </ul>
+  </div>
+
+  <MenuBtn on:menuBtnClicked={handleClick} />
+</header>
+
+<style lang='scss'>
   :root{
-    --header-height: 84px;
+    --header-width : 170px ;
+    --header-height : 66px;
   }
   .header{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-    position: absolute;
-    padding: 24px 40px 0;
+    width: fit-content;
+    height: 100vh;
+    padding: 24px 0;
+    padding-left: 24px;
+    position: fixed;
+    top: 0;
+    left: 0;
     z-index: 999;
-    mix-blend-mode: unset;
   }
+  
   .logo{
-    border-bottom: 2px solid black;
-  }
-  .logo_icon{
-    font-size: 50px;
-    font-family: 'Courier New', Courier, monospace;
+    width: fit-content;
+    &_icon{
+      font-size: 40px;
+      font-family: 'Playfair Display', serif;
+      font-weight: 500;
+    }
   }
 
-  @media screen and (max-width: 767px)
-  {
-    :root{
-      --header-height: 76px;
+  .nav{
+    height: 100%;
+    display: flex;
+    align-items: center;
+
+    &_list{
+      display: flex;
+      flex-direction: column;
+      gap: 40px;
     }
+    &_link{
+      font-family: 'Playfair Display', serif;
+      text-transform: uppercase;
+      font-size: 24px;
+      color: var(--gray-500);
+      width: fit-content;
+      cursor: pointer;
+      &:hover{
+        color: black;
+      }
+    }
+  }
+  .is-active-link{
+    color: black;
+    text-decoration: line-through;
+  }
+
+
+  @media screen and (max-width: 1023px){
     .header{
-      padding: 16px 16px 0;
+      height: unset;
+      width: 100vw;
+      padding: 16px 20px 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      mix-blend-mode: luminosity;
     }
     .nav{
       display: none;
     }
+
   }
-  
-</style>
+  </style>
