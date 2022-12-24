@@ -6,6 +6,7 @@
 	import Contact from "$lib/components/home-page/Contact.svelte";
 
   gsap.registerPlugin(ScrollTrigger);
+  let container : HTMLDivElement;
 
   onMount(()=>
   {
@@ -20,25 +21,14 @@
         // snap: 1,
       })
     })
-		
-		const $header = document.querySelector('.header')
 
-		// gsap.to($header,{
-		// 	backgroundColor : "black",
-		// 	duration: .2,
-		// 	scrollTrigger:{
-		// 		trigger: ".contact",
-		// 		start: "top 30%",
-		// 		toggleActions: "play none none reverse",
-
-		// 	}
-		// })
+    container.style.opacity="1"
 
   })
 </script>
 
 
-<div class="container">
+<div class="container" style:opacity="0" bind:this={container}>
 	<Main/>
 	<Contact/>
 </div>
