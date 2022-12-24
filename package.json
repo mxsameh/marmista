@@ -22,7 +22,7 @@
 		"eslint-plugin-svelte3": "^4.0.0",
 		"prettier": "^2.8.0",
 		"prettier-plugin-svelte": "^2.8.1",
-		"sass": "^1.56.2",
+		"sass": "^1.57.1",
 		"split-type": "^0.3.3",
 		"svelte": "^3.54.0",
 		"svelte-check": "^2.9.2",

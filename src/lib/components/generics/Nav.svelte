@@ -2,7 +2,7 @@
 	import IsMenuOpened from '$lib/stores/menu';
 	import { createEventDispatcher, onMount } from 'svelte';
 	import SplitType from 'split-type';
-	import gsap from 'gsap';
+	import {gsap} from 'gsap';
 	import ActiveNavTab from '$lib/stores/activeNavTab';
 
   const dispatch  = createEventDispatcher();

@@ -1,6 +1,6 @@
 <script lang='ts'>
 	import IsMenuOpened from '$lib/stores/menu';
-  import gsap from 'gsap'
+  import {gsap} from 'gsap'
 	import { createEventDispatcher, onMount } from "svelte";
 
   let menuLine1 : HTMLSpanElement;
