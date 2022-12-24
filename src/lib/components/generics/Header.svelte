@@ -41,8 +41,7 @@
   .header{
     width: fit-content;
     height: 100vh;
-    padding: 24px 0;
-    padding-left: 24px;
+    padding: 24px;
     position: fixed;
     top: 0;
     left: 0;

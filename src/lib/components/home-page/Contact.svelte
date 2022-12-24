@@ -1,12 +1,12 @@
-<script lang='ts'>
-	import Contact from "$lib/components/home-page/Contact.svelte";
+<script lang="ts">
+	export let background = '#222'; 
+
 	let email = 'info@marmista.co';
 	let phone = '+20 1050060066';
 	let whatsapp = '+20 1050060088';
-
 </script>
 
-<main class="contact">
+<sectoin class="contact section" style:background={background}>
 	<h1 class="contact_title">contact us</h1>
 
 	<form class="message_form">
@@ -57,15 +57,10 @@
 			<h3 class="phone_text text">{phone}</h3>
 		</div>
 	</div>
-</main>
+</sectoin>
 
 <style lang="scss">
-
-  $radius : clamp(40px, 6vw, 80px);
-  
 	.contact {
-    border-radius: 32px 0 0 32px;
-    overflow: hidden;
 		display: flex;
 		flex-direction: column;
 		align-items: center;
@@ -73,20 +68,10 @@
 		padding: 40px 24px;
 		height: 100vh;
 		font-weight: 500;
-    margin-left: 24px;
+		width: 100vw;
 		position: relative;
-    &::before{
-      content: "";
-      width: 100%;
-      height: 100%;
-      position: absolute;
-      top: 0;
-      left: 0;
-      background: #222 url('/product2.jpg') no-repeat fixed center;
-      filter: brightness(.4);
-      background-size: cover;
-      z-index: -1;
-    }
+		top: 0;
+		left: -170px;
 
 		&_title {
 			font-size: clamp(40px, 8vw, 100px);
@@ -148,19 +133,18 @@
 	}
 
 	@media screen and (max-width: 1023px){
-    .contact{
-      margin: 0;
-      top: calc( var(--header-height) + 24px);
-      height: calc(100vh - var(--header-height) - 24px );
-      border-radius: 32px 32px 0 0;
-    }
+		.contact{
+			left: unset;
+			position: static;
+			width: 100%;
+		}
 	
 	}
 
 	@media screen and (max-width: 767px) {
 		.contact {
-      top: 24px;
 			// height: calc(100vh - var(--header-height));
+			padding-top: calc(var(--header-height) + 40px);
 		}
 		.message {
 			&_form {
@@ -183,12 +167,4 @@
     }
 
 	}
-  @media screen and (max-width: 1023px){
-    .main{
-      // margin-top: 24px;
-      border-radius:  40px 40px 0 0;
-    }
-
-  }
-  
 </style>

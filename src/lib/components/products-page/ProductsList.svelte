@@ -51,14 +51,20 @@
       // text-overflow: ellipsis;
       // width: 100%;
     }
-    &:hover &_name{
-      color: black;
+  }
+
+  @media screen and (min-width: 1024px){
+    .product{
+      &:hover &_name{
+        color: black;
+      }
+      &:hover &_image{
+        filter: drop-shadow(10px 8px 8px rgba(0,0,0,.3)) brightness(1);
+        // filter: brightness(1);
+        scale: 1.1;
+      }
     }
-    &:hover &_image{
-      filter: drop-shadow(10px 8px 8px rgba(0,0,0,.3)) brightness(1);
-      // filter: brightness(1);
-      scale: 1.1;
-    }
+  
   }
   @media screen and (max-width: 1023px){
     .product{
