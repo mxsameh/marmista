@@ -41,28 +41,4 @@ import gsap from "gsap";
 </div> -->
 
 <style lang='scss'>
-  h1{
-    font-size: 8vw;
-    color: white;
-  }
-  .main{
-    width: 100%;
-    // min-height: 100vh;
-    // background-color: antiquewhite;
-    height: 100vh;
-
-  }
-  .section{
-    display: grid;
-    place-items: center;
-    height: 100vh;
-    width: 100%;
-    background-color: black;
-
-  }
-  .sec{
-    background-color: red;
-
-  }
-  
 </style>

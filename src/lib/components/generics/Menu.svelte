@@ -2,7 +2,7 @@
 	import IsMenuOpened from "$lib/stores/menu";
   import Nav from "./Nav.svelte";
 	import { onMount } from "svelte";
-  import gsap from 'gsap';
+  import gsap from "gsap";
   
   let menu : HTMLDivElement;
   let isOpened = $IsMenuOpened;

@@ -184,10 +184,6 @@
 
 	}
   @media screen and (max-width: 1023px){
-    .main{
-      // margin-top: 24px;
-      border-radius:  40px 40px 0 0;
-    }
 
   }
   
