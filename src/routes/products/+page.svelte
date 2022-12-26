@@ -1,3 +1,6 @@
+<svelte:head>
+	<title>Products-Marmista</title>
+</svelte:head>
 <script lang="ts">
 	import ProductsList from '$lib/components/products-page/ProductsList.svelte';
 </script>

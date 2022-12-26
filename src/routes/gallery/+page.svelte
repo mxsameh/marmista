@@ -1,12 +1,13 @@
+<svelte:head>
+	<title>Gallery-Marmista</title>
+</svelte:head>
 <script lang='ts'>
 	import Gallery from "$lib/components/gallery/Gallery.svelte";
-  import GalleryStore from "$lib/stores/gallery";
+  import GalleryStore from "$lib/stores/GalleryStore";
 
   const images = $GalleryStore.images
   const dimens = $GalleryStore.dimens
-
 </script>
-
 
 <main class="main">
   <Gallery {images} {dimens} />

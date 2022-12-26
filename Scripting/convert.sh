@@ -1,8 +1,7 @@
 #! /usr/bin/bash
 
-outputPath="../static/products"
+outputPath="../static/gallery"
 path="$outputPath/*"
-imagePath="$outputPath/marmara.jpeg"
 # counter=1
 
 
@@ -14,6 +13,7 @@ imagePath="$outputPath/marmara.jpeg"
 #     mv "$f" "..$x.jpeg"
 #     # echo "$x.webp"
 #     # echo "$f"
+    # echo "$f" >> file.txt
 # done
 
 
@@ -23,11 +23,10 @@ imagePath="$outputPath/marmara.jpeg"
 
 for f in $path
 do
-    echo "$f" >> file.txt
-    # arrIN=(${f//./ })
-    # x=${arrIN[0]}
-    # cwebp -q 80 "$f" -o "..$x.webp"
+    # echo "$f"
+    arrIN=(${f//./ })
+    x=${arrIN[0]}
+    cwebp -q 80 "$f" -o "..$x.webp"
     # echo "$x.webp"
-#     # ((counter++))
 done
 

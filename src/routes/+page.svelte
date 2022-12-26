@@ -1,3 +1,6 @@
+<svelte:head>
+  <title>Home-Marmista</title>
+</svelte:head>
 <script lang="ts">
 	import ScrollTrigger from "gsap/dist/ScrollTrigger";
 	import {gsap} from 'gsap';

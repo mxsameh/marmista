@@ -1,19 +1,9 @@
 <script lang='ts'>
-	import ScreenSize from "$lib/stores/screenSize";
-	import NavBtns from "./NavBtns.svelte";
-
   export let image : string
-  export let links : any
-  $:screenSize = $ScreenSize
 </script>
 
 
   <div class="product_image" style:background-image={`url(${image})`}>
-    {#if screenSize == 's' }
-    <div class="image_btns">
-      <NavBtns productLinks={links}/>
-    </div>
-    {/if}
   </div>
 
 <style>
@@ -43,9 +33,6 @@
       box-shadow: 0px -4px 16px rgba(0, 0, 0, 0.5);
       max-width: unset;
       display: flex;
-    }
-    .image_btns{
-      margin: auto auto 16px;
     }
   }
   

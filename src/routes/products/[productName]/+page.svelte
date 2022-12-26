@@ -1,3 +1,7 @@
+<svelte:head>
+	<title>{title}</title>
+</svelte:head>
+
 <script lang="ts">
 	import ProductImage from '$lib/components/product-page/ProductImage.svelte';
 	import ProductInfo from '$lib/components/product-page/ProductInfo.svelte';
@@ -6,6 +10,9 @@
 	import { onMount } from 'svelte';
 
 	export let data: any;
+	//
+	$:title = capitalize(data.product.name);
+	//
 	$: links = data.productLinks;
 	$: screenSize = $ScreenSize;
 
@@ -17,6 +24,13 @@
 		product = data.product;
 		// firstLoad = false
 	});
+
+	const capitalize = (str: string) : string =>
+	{
+		let strArr = str.split(' ');
+		strArr = strArr.map(word=>word[0].toUpperCase()+word.slice(1));
+		return strArr.join(' ');
+	}
 
 	const smallScreenTl = gsap.timeline({ paused: true });
 	let newProduct: any;
@@ -74,8 +88,8 @@
 <main class="main">
 	{#if product}
 		<div class="product">
-			<ProductInfo name={product.name} details={product.details} productLinks={links} />
-			<ProductImage image={product.image} {links} />
+			<ProductInfo name={product.name} productLinks={links} />
+			<ProductImage image={product.image} />
 		</div>
 	{/if}
 </main>

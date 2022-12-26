@@ -61,7 +61,7 @@
     .content{
 			padding-top: 24px;
       &_title{
-        font-size: clamp(40px, 10vw, 100px);
+        font-size: clamp(44px, 10vw, 100px);
       }
     }
 	}
