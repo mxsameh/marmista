@@ -28,7 +28,7 @@
       <a href="/" class="nav_link" class:is-active-link={activeLink == 'home'}>home</a>
       <a href="/products" class="nav_link" class:is-active-link={activeLink == 'products'}>products</a>
       <a href="/gallery" class="nav_link" class:is-active-link={activeLink == 'gallery'}>gallery</a>
-      <a href="contact" class="nav_link" class:is-active-link={activeLink == 'contact'}>contact</a>
+      <a href="/contact" class="nav_link" class:is-active-link={activeLink == 'contact'}>contact</a>
     </ul>
   </div>
 

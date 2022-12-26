@@ -34,6 +34,7 @@
       aspect-ratio: 1;
       object-fit: cover;
       border-radius: 20px;
+      background-color: var(--gray-200);
       // filter: drop-shadow(10px 8px 8px rgba(0,0,0,.3)) brightness(.8);
       filter: brightness(.8);
       transition: scale 150ms ease-in;
