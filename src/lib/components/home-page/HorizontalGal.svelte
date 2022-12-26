@@ -1,27 +1,9 @@
 <script lang="ts">
+	import HomeGalleryImages from '$lib/stores/HomeGalleryImages';
 	import GalleryRow from './GalleryRow.svelte';
-	const row1Images = [
-		'/product1.png',
-		'/lilack.webp',
-		'/marmara.webp',
-		'/product1.png',
-		'/marmara.webp',
-		'/lilack.webp',
-		'/product2.jpg',
-		'/lilack.webp',
-		'/product2.jpg'
-	];
-	const row2Images = [
-		'/lilack.webp',
-		'/marmara.webp',
-		'/product1.png',
-		'/lilack.webp',
-		'/marmara.webp',
-		'/product2.jpg',
-		'/lilack.webp',
-		'/product1.png',
-		'/product2.jpg'
-	];
+
+	let row1Images = $HomeGalleryImages.images1;
+	let row2Images = $HomeGalleryImages.images2;
 
 
 </script>

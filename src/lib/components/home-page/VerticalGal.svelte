@@ -1,34 +1,16 @@
 <script lang='ts'>
+	import HomeGalleryImages from "$lib/stores/HomeGalleryImages";
 	import GalleryCol from "./GalleryCol.svelte";
 
   
-	const col1Images = [
-		'/product1.png',
-		'/lilack.webp',
-		'/marmara.webp',
-		'/product1.png',
-		'/marmara.webp',
-		'/lilack.webp',
-		'/product2.jpg',
-		'/lilack.webp',
-		'/product2.jpg'
-	];
-	const col2Images = [
-		'/lilack.webp',
-		'/marmara.webp',
-		'/product1.png',
-		'/marmara.webp',
-		'/product2.jpg',
-		'/lilack.webp',
-		'/product1.png',
-		'/product2.jpg'
-	];
+	const col1Images = $HomeGalleryImages.images1
+	const col2Images = $HomeGalleryImages.images2
 
 </script>
 
 <div class="gallery">
   <GalleryCol images={col1Images} duration={12} colKey={"1"}/>
-  <GalleryCol images={col1Images} duration={10} colKey={"2"}/>
+  <GalleryCol images={col2Images} duration={10} colKey={"2"}/>
 </div>
 
 

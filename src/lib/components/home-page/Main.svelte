@@ -36,7 +36,7 @@
 			font-family: 'Playfair Display', serif;
 			text-align: center;
 			text-transform: capitalize;
-			font-weight: 500;
+			font-weight: 600;
 			color: var(--gray-800);
 		}
 	}
@@ -59,7 +59,7 @@
 			padding-top: var(--header-height);
 		}
     .content{
-			padding-top: 40px;
+			padding-top: 24px;
       &_title{
         font-size: clamp(40px, 10vw, 100px);
       }

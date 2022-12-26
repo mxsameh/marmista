@@ -13,7 +13,7 @@ const getProductLinks = (productId : number) =>
 {
   const products = get(Products)
   const productsLength = products.length
-  const currentIndex = productId - 1;
+  const currentIndex = productId;
   const nextIndex = currentIndex == productsLength-1 ? 0 : currentIndex+1
   const nextProduct = products[nextIndex]
   const prevIndex = currentIndex == 0 ? productsLength-1 : currentIndex-1
