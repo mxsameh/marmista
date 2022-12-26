@@ -1,6 +1,7 @@
 <svelte:head>
 	<title>Contact-Marmista</title>
 </svelte:head>
+
 <script lang='ts'>
 	let email = 'info@marmista.co';
 	let phone = '+20 1229994355';
@@ -84,7 +85,8 @@
       position: absolute;
       top: 0;
       left: 0;
-      background: #222 url('/') no-repeat fixed center;
+      // background: #222 url('/') no-repeat fixed center;
+			background-color: #222;
       filter: brightness(.4);
       background-size: cover;
       z-index: -1;
@@ -186,8 +188,5 @@
     }
 
 	}
-  @media screen and (max-width: 1023px){
-
-  }
   
 </style>
