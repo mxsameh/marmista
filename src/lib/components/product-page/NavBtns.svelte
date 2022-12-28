@@ -38,14 +38,15 @@
 	}
 	.arrow {
 		width: 60px;
+		height: auto;
 		fill: none;
 		stroke: var(--gray-700);
     cursor: pointer;
-    transition: all .5 linear;
 	}
 
 	@media screen and (max-width: 1023px){
 		.arrow{
+			transition: all .5 linear;
 			&:hover{
 				stroke: black;
 				scale: 1.1;
