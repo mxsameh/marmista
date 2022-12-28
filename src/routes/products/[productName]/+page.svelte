@@ -6,7 +6,7 @@
 	import ProductImage from '$lib/components/product-page/ProductImage.svelte';
 	import ProductInfo from '$lib/components/product-page/ProductInfo.svelte';
 	import ScreenSize from '$lib/stores/screenSize';
-	import {gsap} from 'gsap';
+	import {gsap} from "gsap";
 	import { onMount } from 'svelte';
 
 	export let data: any;
