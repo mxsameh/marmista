@@ -42,10 +42,15 @@
 		stroke: var(--gray-700);
     cursor: pointer;
     transition: all .5 linear;
-    &:hover{
-      stroke: black;
-      scale: 1.1;
-    }
+	}
+
+	@media screen and (max-width: 1023px){
+		.arrow{
+			&:hover{
+				stroke: black;
+				scale: 1.1;
+			}
+		}
 	}
 
 	@media screen and (max-width: 767px) {

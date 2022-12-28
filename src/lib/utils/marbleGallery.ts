@@ -1,4 +1,4 @@
-import gsap from 'gsap';
+import {gsap} from 'gsap';
 
 const numberOfCols = 2
 const numberOfColImages = 5

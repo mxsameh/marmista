@@ -1,5 +1,5 @@
 
-import gsap from "gsap"
+import {gsap} from "gsap"
 
 const positionImages = (imageWidth : number, rowKey : string) : void =>
 {

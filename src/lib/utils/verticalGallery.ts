@@ -1,4 +1,4 @@
-import gsap from 'gsap';
+import {gsap} from 'gsap';
 
 const positionImages = (imageHeight : number, colKey : string) : void =>
 {
